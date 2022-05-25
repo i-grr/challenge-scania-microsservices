@@ -1,8 +1,6 @@
 package br.com.fiap.configbus.model;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "TB_ASSENTO_ONIBUS")
@@ -17,20 +15,20 @@ public class Assento {
     private Long qtd;
 
     @ManyToOne
-    @JoinColumn(name = "id_modelo_fk")
+    @JoinColumn(name = "id_modelo_assento_fk")
     private ModeloAssento modelo;
 
     @ManyToOne
-    @JoinColumn(name = "id_assento_fk")
-    private MaterialAssento assento;
+    @JoinColumn(name = "id_material_assento_fk")
+    private MaterialAssento material;
 
     @Deprecated
     public Assento() {}
 
-    public Assento(Long qtd, ModeloAssento modelo, MaterialAssento assento) {
+    public Assento(Long qtd, ModeloAssento modelo, MaterialAssento material) {
         this.qtd = qtd;
         this.modelo = modelo;
-        this.assento = assento;
+        this.material = material;
     }
 
     public Long getId() {
@@ -57,12 +55,12 @@ public class Assento {
         this.modelo = modelo;
     }
 
-    public MaterialAssento getAssento() {
-        return assento;
+    public MaterialAssento getMaterial() {
+        return material;
     }
 
-    public void setAssento(MaterialAssento assento) {
-        this.assento = assento;
+    public void setMaterial(MaterialAssento material) {
+        this.material = material;
     }
 
 }
