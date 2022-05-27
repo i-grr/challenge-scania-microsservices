@@ -1,6 +1,12 @@
 package br.com.fiap.configbus.model;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "TB_ASSENTO_ONIBUS")
@@ -15,11 +21,11 @@ public class Assento {
     private Long qtd;
 
     @ManyToOne
-    @JoinColumn(name = "id_modelo_assento_fk")
+    @JoinColumn(name = "id_modelo_fk")
     private ModeloAssento modelo;
 
     @ManyToOne
-    @JoinColumn(name = "id_material_assento_fk")
+    @JoinColumn(name = "id_material_fk")
     private MaterialAssento material;
 
     @Deprecated
